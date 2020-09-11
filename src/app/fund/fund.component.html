@@ -1,0 +1,19 @@
+<h3>Customer's Fund Details</h3>
+  <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fund Name</th>
+                <th>Transaction Amount</th>
+                <th>Account Number</th>
+                <th>Invest Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of funds">
+                <td>{{f.fundName}}</td>
+                <td>{{f.trasactionAmount}}</td>
+                <td>{{f.accountNumber}}</td>
+                <td>{{f.investAmount}}</td>
+            </tr>
+        </tbody>

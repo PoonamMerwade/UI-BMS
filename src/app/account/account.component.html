@@ -1,0 +1,93 @@
+<h3>Enter the Account details</h3>
+<div class="container p-5 bg-light">
+    <form name="form" (ngSubmit)="save()" #f="ngForm">
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="username">UserName(PAN)</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" id="userName" required #username="ngModel" class="form-control" name="Username"
+                [(ngModel)]="account.customer.userName" placeholder="Enter customer's PAN">
+                <div *ngIf="username.touched">
+                    <div *ngIf="username.errors && (username.invalid)">
+                      <small class="text-danger" *ngIf="username.errors.required">PAN is required</small>
+                      <small class="text-danger" *ngIf="username.errors.pattern">PAN must have 10 characters</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="bName">BankName</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[a-zA-Z]{2}[A-Za-z\s]*" id="bName" required #bn="ngModel" class="form-control" name="BankName" 
+                [(ngModel)]="account.bankName" placeholder="Enter bank's Name">
+                <div *ngIf="bn.touched">
+                    <div *ngIf="bn.errors && (bn.invalid)">
+                      <small class="text-danger" *ngIf="bn.errors.required">Bank Name is required</small>
+                      <small class="text-danger" *ngIf="bn.errors.pattern">Only alphabets allowed with minimum 2 chars</small>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="accNum">Account Number</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[1-9]{1}[0-9]{9}" id="accNum" required #an="ngModel" class="form-control" name="AccountNumber" 
+                [(ngModel)]="account.accountNumber" placeholder="Enter account number">
+                <div *ngIf="an.touched">
+                    <div *ngIf="an.errors && (an.invalid)">
+                      <small class="text-danger" *ngIf="an.errors.required">Account Number is required</small>
+                      <small class="text-danger" *ngIf="an.errors.pattern">AccountNumber must be of 10 number</small>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="ifsc">IFSC Code</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" id="ifsc" required #ifsc="ngModel" class="form-control" name="IFSC" 
+                [(ngModel)]="account.ifscCode" placeholder="Enter IFSC Code">
+                <div *ngIf="ifsc.touched">
+                    <div *ngIf="ifsc.errors && (ifsc.invalid)">
+                      <small class="text-danger" *ngIf="ifsc.errors.required">IFSC code of bank is required</small>
+                      <small class="text-danger" *ngIf="ifsc.errors.pattern">IFSC should be 11 characters long</small>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="micr">MICR Code</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[1-9]{1}[0-9]{9}" id="micr" required #micr="ngModel" class="form-control" name="MICR" 
+                [(ngModel)]="account.micrCode" placeholder="Enter MICR Code">
+                <div *ngIf="micr.touched">
+                    <div *ngIf="micr.errors && (micr.invalid)">
+                      <small class="text-danger" *ngIf="micr.errors.required">MICR code of bank is required</small>
+                      <small class="text-danger" *ngIf="micr.errors.pattern">MICR must be of 10 digits</small>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+       
+        <div class="row mt-3 ml-4 form-group">
+            <!--button type="submit" [disabled]="f.invalid" name="submit" class="form-control" -->
+           <button (click)="save()" [disabled]="!f.form.valid" class="btn btn-primary btn-md">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+

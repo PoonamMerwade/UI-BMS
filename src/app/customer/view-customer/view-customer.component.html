@@ -1,0 +1,43 @@
+<h3>Customer Details</h3>
+<form (ngSubmit)="viewCustomer()">
+  
+<div class="container">
+    <div class="form-group">
+    <input type="text" name="userName" class="form-control"
+    [(ngModel)]="customer.userName" placeholder="Enter customer's PAN"> 
+    </div>
+    <br>
+    <button class="btn btn-info" type="submit" (click)='viewCustomer()'  [routerLink]="['/customer/'+customer.userName]" >View Customer</button> 
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>UserName</th>
+                <th>EmailId</th>
+                <th>DOB</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of customers">
+                <td>{{c.firstName}}</td>
+                <td>{{c.lastName}}</td>
+                <td>{{c.userName}}</td>
+                <td>{{c.emailId}}</td>
+                <td>{{c.dob}}</td>
+                <td>{{c.phoneNumber}}</td>
+             </tr>
+            
+        </tbody>
+    </table>
+   
+  </div>  
+ </form> 
+<br>
+<br>
+<br>
+  <app-view-account></app-view-account> 
+  <!-- <app-fund></app-fund> -->
