@@ -26,7 +26,7 @@ export class AccountComponent implements OnInit {
     let userName = this.actRoute.snapshot.params.userName;
     if(userName){
       this.isNew = false;
-      this.accountService.getAccountByUserName(userName).subscribe(
+      this.accountService.getAccountByUserName().subscribe(
         (data)=>{
           this.account=data;
         }
@@ -62,7 +62,8 @@ save(){
     }
     ob.subscribe(
       (data)=>{
-        this.router.navigateByUrl("/home");
+        alert('ACCUONT DETAILS ADDED SUCCESSFULLY....');
+        this.router.navigateByUrl("/account");
       },
       (errResponse)=>{
         this.msg = errResponse.error;

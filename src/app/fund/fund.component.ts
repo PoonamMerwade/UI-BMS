@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Fund } from '../model/fund';
 import { FundService } from '../service/fund.service';
-import { ActivatedRoute } from '@angular/router';
 import { Customer } from '../model/customer';
 
 @Component({
@@ -13,22 +12,24 @@ export class FundComponent implements OnInit {
 
   fund:Fund;
   funds={}
-  @Input()
-  userName: String;
+  @Input() customer:Customer;
+  public userName: String;
+  msg: string;
 
-  @Input()
-  customer:Customer;
-  constructor(private fundService:FundService,private route:ActivatedRoute) { }
+  constructor(private fundService:FundService) { }
 
   ngOnInit(): void {
-    this.getTransaction();
+    this.userName=window.localStorage.getItem('userName');
+    let resp = this.fundService.getFundTrasaction();
+    resp.subscribe((data) =>{this.funds= data;
+      console.log('fund',data)
+  },
+  error=>{
+    console.log("Exception occured");
+    this.msg="No fund invested";
+  }
+  
+  );
+  }
   }
 
-  getTransaction(){
-    this.userName=this.route.snapshot.params.userName;
-    this.fundService.getFundTrasaction(this.userName).subscribe(data=>{
-      this.funds=data;
-    })
-  }
-
-}

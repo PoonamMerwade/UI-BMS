@@ -11,27 +11,37 @@ import { Customer } from 'src/app/model/customer';
 })
 export class ViewCustomerComponent implements OnInit {
   
-  @Input()
-  public userName:String;
-  data:any;
-  // customer:Customer[];
-  customer=new Customer();
+  // @Input()
+  userName:String;
+  // data:any;
+  public customer:Customer=new Customer();
   customers={};
+  msg: any;
+  // customers:Customer[];
   
 
   constructor(private customerService:CustomerService,private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.viewCustomer();
+  ngOnInit() :void{
+    this.userName=window.localStorage.getItem('userName');
+    let resp = this.customerService.getCustomerByUserName();
+    resp.subscribe((data) =>{this.customers= data;
+      console.log('customer',data)
+    }
+    );
+    
+  }
   }
 
-  viewCustomer(){
-    // this.userName=this.route.snapshot.params.userName;
-    this.userName=this.customer['userName']
-    console.log(this.userName);
-    this.customerService.getCustomerByUserName(this.userName).subscribe(data=>{
-    this.customers=data;
-      //  console.log(data);
-  })
-  }
-}
+  // viewCustomer(){
+  //   // this.userName=this.route.snapshot.params.userName;
+  //   this.userName=this.customer['userName']
+  //   // this.userName=this.userName;
+  //   console.log(this.userName);
+  //   this.customerService.getCustomerByUserName(this.userName).subscribe(data=>{
+  //   this.customers=data;
+  //     //  console.log(data);
+  // })
+  // }
+
+

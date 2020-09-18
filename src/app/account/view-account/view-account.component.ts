@@ -11,28 +11,35 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewAccountComponent implements OnInit {
 
-  @Input()
   public userName:String;
 
-  @Input()
-  customer=new Customer();
-
+  @Input() customer:Customer;
+  
   account:Account;
   accounts={}
-  // userName: any;
+  msg: string;
+
   constructor(private accountService:AccountService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.ViewAccount();
+    this.userName=window.localStorage.getItem('userName');
+    let resp = this.accountService.getAccountByUserName();
+    resp.subscribe((data) =>{this.accounts= data;
+      console.log('account',data)
+    },
+    error=>{
+      console.log("Exception occured");
+      this.msg="No account found";
+    }
+    
+    );
   }
-
-  ViewAccount(){
-    // this.userName=this.account.customer['userName'];
-    this.userName=this.route.snapshot.params.userName;
-    // console.log(this.account.customer.userName);
-    this.accountService.getAccountByUserName(this.userName).subscribe(data=>{
-      this.accounts=data;
-    })
-  }
-
 }
+  // ViewAccount(){
+  //   this.userName=this.customer['userName'];
+  //   this.accountService.getAccountByUserName(this.userName).subscribe(data=>{
+  //     this.accounts=data;
+  //   })
+  // }
+
+

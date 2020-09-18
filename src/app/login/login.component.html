@@ -1,3 +1,4 @@
+
 <h1>Customer Login</h1>
 <div class="container p-5 bg-light">
   <form name="form" (ngSubmit)="loginUser()" #f="ngForm">
@@ -27,17 +28,17 @@
             <div *ngIf="password.touched">
             <div *ngIf="password.errors && (password.invalid)">
               <small class="text-danger" *ngIf="password.errors.required">Password required</small>
-              <!-- <small class="text-danger" *ngIf="password.errors.pattern">Only alphabets allowed with minimum 8 chars</small> -->
-            </div>
+              <!-- <small class="text-danger" *ngIf="password.errors.pattern">Only alphabets allowed with minimum 8 chars</small>  -->
+           </div>
         </div>
     </div>
   </div>
-  <div class="row mt-3 ml-4 form-group">
-    <!-- [disabled]="f.invalid" type="submit" name="submit" class="form-control" -->
-    <button (click)="loginUser()" class="btn btn-primary btn-md">Submit</button>
+  <div class="row mt-3 ml-4 form-group"> 
+     <!-- [disabled]="f.invalid" type="submit" name="submit" class="form-control"  -->
+     <button (click)="loginUser()" class="btn btn-primary btn-md">Submit</button>
 </div>
 </form>
 <small class="float-right" [routerLink]="['/addcustomer']">New User ? Register here</small>
 </div>
 
-
+ 

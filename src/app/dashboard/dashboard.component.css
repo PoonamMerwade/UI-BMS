@@ -1,8 +1,8 @@
-.navbar {
+/* .navbar {
     margin-bottom: 50px;
     border-radius: 0;
     background-color:gray;
-  }
+  } */
   
   /* Remove the jumbotron's default bottom margin */ 
    .jumbotron {
@@ -20,7 +20,7 @@
     padding: 25px;
   } */
 
-  body {
+  /* body {
 font-family: "Lato", sans-serif;
 }
 
@@ -46,4 +46,4 @@ ul {
   
   li a:hover {
     background-color: #111;
-  }
+  } */

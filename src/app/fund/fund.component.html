@@ -1,5 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+<body>
+
+ <div class="jumbotron">
+  <div class="container text-center" style="margin-bottom:0;padding:0px">
+    <h1> Bank Management </h1>    
+    <p> Your Desires , Our Values </p>
+  </div>
+</div> 
+ <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/customer">Dashboard</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/account">View Account</a>
+          <a class="dropdown-item" href="/addaccount">Add Account</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Fund</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/fund">View Fund</a>
+          <a class="dropdown-item" href="/addfund">Add Fund</a>
+        </div>
+      </li>
+      <!-- <div class="float-right"> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+    <!-- </div> -->
+    </ul>
 <h3>Customer's Fund Details</h3>
-  <br>
+<!-- <small class="text-danger">{{msg}}</small> -->
+<h1>{{msg}}</h1>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -12,8 +58,12 @@
         <tbody>
             <tr *ngFor="let f of funds">
                 <td>{{f.fundName}}</td>
-                <td>{{f.trasactionAmount}}</td>
+                <td>{{f.transactionAmount}}</td>
                 <td>{{f.accountNumber}}</td>
-                <td>{{f.investAmount}}</td>
+                <td>{{f.investmentAmount}}</td>
             </tr>
         </tbody>
+        <!-- <br> -->
+        </table>
+        </body>
+        </html>

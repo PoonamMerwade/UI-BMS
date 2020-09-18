@@ -8,7 +8,6 @@ import { AccountComponent } from './account/account.component';
 import { FundComponent } from './fund/fund.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LogoutComponent } from './logout/logout.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 // import { HttpModule } from '@angular/common/http';
 import { HttpClientModule} from '@angular/common/http';
@@ -17,6 +16,8 @@ import { AccountService } from './service/account.service';
 import {ViewAccountComponent} from './account/view-account/view-account.component';
 import {ViewCustomerComponent} from './customer/view-customer/view-customer.component'
 import {FundService} from './service/fund.service';
+import { LogoutComponent } from './logout/logout.component';
+import { AddFundComponent } from './fund/add-fund/add-fund.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +26,10 @@ import {FundService} from './service/fund.service';
     FundComponent,
     LoginComponent,
     DashboardComponent,
-    LogoutComponent,
     ViewCustomerComponent,
-    ViewAccountComponent
+    ViewAccountComponent,
+    LogoutComponent,
+    AddFundComponent
   ],
   imports: [
     BrowserModule,

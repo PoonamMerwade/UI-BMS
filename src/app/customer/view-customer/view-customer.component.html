@@ -1,43 +1,73 @@
-<h3>Customer Details</h3>
-<form (ngSubmit)="viewCustomer()">
-  
-<div class="container">
-    <div class="form-group">
-    <input type="text" name="userName" class="form-control"
-    [(ngModel)]="customer.userName" placeholder="Enter customer's PAN"> 
-    </div>
-    <br>
-    <button class="btn btn-info" type="submit" (click)='viewCustomer()'  [routerLink]="['/customer/'+customer.userName]" >View Customer</button> 
-    <br>
-    <br>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+<body>
+
+ <div class="jumbotron">
+  <div class="container text-center" style="margin-bottom:0;padding:0px">
+    <h1> Bank Management </h1>    
+    <p> Your Desires , Our Values </p>
+  </div>
+</div> 
+ <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/customer">Dashboard</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Account</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/account">View Account</a>
+          <a class="dropdown-item" href="/addaccount">Add Account</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Fund</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/fund">View Fund</a>
+          <a class="dropdown-item" href="/addfund">Add Fund</a>
+        </div>
+      </li>
+      <!-- <div class="float-right"> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+    <!-- </div> -->
+    </ul>
+<h4 class="display-10 text-center">Welcome to Banking World</h4><br><br>
+
+<div class="container"><div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr class = "cus">
+                <th>FirstName</th>
+                <th>LastName</th>
                 <th>UserName</th>
                 <th>EmailId</th>
                 <th>DOB</th>
-                <th>Phone Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let c of customers">
-                <td>{{c.firstName}}</td>
-                <td>{{c.lastName}}</td>
-                <td>{{c.userName}}</td>
-                <td>{{c.emailId}}</td>
-                <td>{{c.dob}}</td>
-                <td>{{c.phoneNumber}}</td>
-             </tr>
-            
-        </tbody>
-    </table>
-   
-  </div>  
- </form> 
-<br>
-<br>
-<br>
-  <app-view-account></app-view-account> 
-  <!-- <app-fund></app-fund> -->
+                <th>PhoneNumber</th>
+        </tr>
+        <tr *ngFor="let c of customers">
+            <td>{{c.firstName}}</td>
+            <td>{{c.lastName}}</td>
+            <td>{{c.userName}}</td>
+            <td>{{c.emailId}}</td>
+            <td>{{c.dob}}</td>
+            <td>{{c.phoneNumber}}</td>
+        </tr>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+</html>
+<!-- <app-view-account [customer]="customer"></app-view-account> -->

@@ -23,7 +23,7 @@ export class CustomerComponent implements OnInit {
     let userName = this.actRoute.snapshot.params.userName;
     if(userName){
       this.isNew = false;
-      this.customerService.getCustomerByUserName(userName).subscribe(
+      this.customerService.getCustomerByUserName().subscribe(
         (data)=>{
           this.customer=data;
         }
@@ -52,7 +52,8 @@ export class CustomerComponent implements OnInit {
     }
     ob.subscribe(
       (data)=>{
-        this.router.navigateByUrl("/home");
+        alert('ACCUONT DETAILS ADDED SUCCESSFULLY....');
+        this.router.navigateByUrl("/login");
       },
       (errResponse)=>{
         this.msg = errResponse.error;
